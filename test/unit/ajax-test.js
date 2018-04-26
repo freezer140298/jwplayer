@@ -28,11 +28,12 @@ describe('utils.ajax', function() {
             options.oncomplete = (result) => {
                 reject(successHandler(result));
             };
-            options.onerror = (message, url, result) => {
+            options.onerror = (message, url, result, error) => {
                 resolve({
                     message,
                     url,
-                    result
+                    result,
+                    error
                 });
             };
             ajax(options);
